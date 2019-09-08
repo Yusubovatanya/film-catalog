@@ -11,10 +11,10 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
   constructor(
     private authService: AuthService,
     private router: Router) {
-    this.isLogin = this.authService.isLoggedIn();
   }
 
   canActivate() {
+    this.isLogin = this.authService.isLoggedIn();
     if (this.isLogin) {
       return true;
     } else {
