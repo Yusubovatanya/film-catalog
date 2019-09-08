@@ -12,13 +12,11 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  credentials = { username: '', password: '' };
-  errorMessage = '';
   userForm: FormGroup;
   hide = true;
   isLogin: boolean;
   subscriptionLogin$: Subscription;
-  subscription$: Subscription;
+
 
   constructor(
     private authService: AuthService,
@@ -112,8 +110,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.errorMessage = '';//???
-    this.subscription$ = this.authService.login(this.userForm.value.userLogin, this.userForm.value.userPassword)
+    this.authService.login(this.userForm.value.userLogin, this.userForm.value.userPassword)
       .subscribe(
         (res) => {
           this.msgService.setMessage({
