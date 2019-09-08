@@ -110,21 +110,23 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.authService.login(this.userForm.value.userLogin, this.userForm.value.userPassword)
-      .subscribe(
-        (res) => {
-          this.msgService.setMessage({
-            type: "success",
-            body: `${this.userForm.value.userLogin}, Вы успешно вошли в систему. Добро пожаловать!`
-          });
-          setTimeout(() => {
-            this.router.navigate(['/main']);
-          }, 2000);
-        },
-        err => {
-          console.log(err)
-        }
-      );
+    if( this.userForm.valid) {
+      this.authService.login(this.userForm.value.userLogin, this.userForm.value.userPassword)
+        .subscribe(
+          (res) => {
+            this.msgService.setMessage({
+              type: "success",
+              body: `${this.userForm.value.userLogin}, Вы успешно вошли в систему. Добро пожаловать!`
+            });
+            setTimeout(() => {
+              this.router.navigate(['/main']);
+            }, 2000);
+          },
+          err => {
+            console.log(err)
+          }
+        );
+    }
   }
   
   goToRegistration() {
