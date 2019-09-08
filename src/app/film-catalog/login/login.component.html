@@ -11,15 +11,12 @@
     <p class="hint">*Для того, чтобы иметь доступ к нашей огромной коллекции фильмов, необходимо авторизоваться</p>
   </section>
   <mat-card class="loginForm">
-<!--   -->
-    <!-- <form *ngIf="!isLogin" class="example-container" [formGroup]="userForm" (ngSubmit)="login()"> -->
         <form class="example-container" [formGroup]="userForm" (ngSubmit)="login()">
       <mat-form-field class="form_field">
         <input matInput placeholder="Login" name="userLogin" required formControlName="userLogin" />
         <mat-icon *ngIf="formErrors.userLogin" matSuffix class="error_icon error_icon_login">error</mat-icon>
         <mat-error *ngIf="formErrors.userLogin" class="error">{{formErrors.userLogin}}</mat-error>
-        <!-- variant -->
-        <div *ngIf="formErrors.userLogin" class="tooltip_msg">{{formErrors.userLogin}}</div>
+         <div *ngIf="formErrors.userLogin" class="tooltip_msg">{{formErrors.userLogin}}</div>
       </mat-form-field>
 
       <mat-form-field class="form_field">
