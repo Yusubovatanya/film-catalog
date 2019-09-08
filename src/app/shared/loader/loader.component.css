@@ -1,0 +1,44 @@
+.text_percent {
+  color: #3f51b5;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 auto;
+}
+
+.text_percent span {
+  font-size: 14px;
+  vertical-align: super;
+  font-weight: bold;
+}
+
+div {
+  width: 80px;
+  height: 80px;
+  position: relative
+}
+
+.progress__svg {
+  transform: rotate(-90deg);
+}
+
+.progress__svg {
+  transform: rotate(-90deg);
+}
+
+.progress__meter,
+.progress__value {
+  fill: none;
+}
+
+.progress__meter {
+  stroke: #ccc;
+}
+
+.progress__value {
+  stroke: #E91E63;
+  transition: all 100ms;
+}

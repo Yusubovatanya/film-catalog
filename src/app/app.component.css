@@ -1,0 +1,215 @@
+a,
+button {
+  cursor: pointer;
+}
+
+.login_elements {
+  display: inline-block;
+  width: auto;
+}
+
+.example-icon {
+  margin: 0 5px 0 5px;
+}
+
+.example-icon_user {
+  margin: 0 12px 0 3px;
+  color: #FF4081;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.film_logo {
+  background: url(../assets/logo_white.png) no-repeat center;
+  width: 60px;
+  height: 50px;
+  background-size: cover;
+  margin-right: 15px;
+}
+
+.active_link {
+  background-color: #FF4081;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.example-spacer a {
+  border: 2px solid #3f51b5;
+  padding: 0 5px 0 0;
+  border-radius: 5px
+}
+
+/* button top */
+.backToTop {
+  display: block;
+  position: fixed;
+  bottom: 10px;
+  right: 15px;
+  z-index: 110;
+  background-color: #7986cb;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+:host ::ng-deep .mat-toolbar-row {
+  padding: 0;
+}
+
+.menu {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.film_nav {
+  max-width: 420px;
+}
+
+.search_field {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.user_links {
+  max-width: 243px;
+}
+
+.button_exit {
+  background-color: #7986cb;
+  color: #fff;
+}
+
+.button_user {
+  color: #fff;
+  background-color: rgb(63, 81, 181);
+  border-radius: 50%;
+  border: 2px solid #FF4081;
+  margin: 0 20px 0 0;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  display: flex;
+  justify-content: center
+}
+
+.button_user p {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.count {
+  font-size: 14px;
+}
+
+.content {
+  min-height: calc(100vh - 110px);
+}
+
+/* footer */
+footer {
+  margin-top: 40px;
+  background: #3f51b5;
+  color: #fff;
+}
+
+.footer_container-links {
+  width: 200px;
+}
+
+.footer_container {
+  padding: 10px 10px;
+  max-width: 1100px;
+  margin: 0 auto
+}
+
+.contact_media {
+  width: 330px;
+}
+
+.footer_container-links a,
+.footer_container-links a:hover,
+.footer_container-links a:focus,
+.footer_container-links a:active {
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  color: #3f51b5;
+}
+
+.contact_media-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.contact_media a {
+  color: #3f51b5;
+  font-size: 20px;
+}
+
+.footer_container-support p {
+  margin: 0;
+  font-size: 10px;
+  text-transform: uppercase
+}
+
+.footer_container-support a {
+  padding-top: 5px;
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  font-size: 10px;
+}
+
+.footer_container-support ul,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu_simply {
+  display: none
+}
+
+.menu_simply-link,
+.menu_simply button {
+  display: block;
+  text-decoration: none
+}
+
+.menu_simply-link span {
+  color: #000;
+}
+
+.menu_simply-link:hover {
+  color: #3f51b5;
+}
+
+.show {
+  display: none
+}
+
+.hide {
+  display: block
+}
+
+@media (max-width: 599px) {
+
+  .show {
+    display: block
+  }
+
+  .hide {
+    display: none
+  }
+}

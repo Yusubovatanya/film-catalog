@@ -1,0 +1,85 @@
+.film_card {
+  margin: 15px 0;
+  height: auto;
+  max-width: 300px;
+}
+
+.header>p {
+  font-size: 1em;
+  font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin: 0 15px 10px;
+  padding: 0;
+  height: 24px;
+} 
+
+.information p {
+  color: #95979c;
+  font-size: 11px;
+  margin: 0 15px 5px;
+  padding: 0;
+}
+
+.film_card_img {
+  position: relative;
+  padding-bottom: 150%;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+
+.film_card_img img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /* max-width: 100%; */
+  max-height: 100%;
+  margin: auto;
+  transition: transform .4s ease-out;
+}
+
+.film_card_img:hover .film_card_img img {
+  transform: scale(1.05);
+}
+
+.description {
+  position: relative;
+  margin: 0;
+  /* font-size: 1em;
+	line-height: 1.4em;
+	height: 2.8em;
+  overflow: hidden; */
+  padding: 0 15px;
+}
+
+.about_film p {
+  margin: 0;
+  font-size: 12px;
+}
+
+.about_film {
+  font-size: 1em;
+  line-height: 1.4em;
+  height: 4.2em;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+
+.about_film p:after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 6em;
+  height: 1.6em;
+  background: linear-gradient(to left top, #fff, rgba(255, 255, 255, 0));
+}
+
+:host ::ng-deep mat-card {
+  padding: 15px 0
+}

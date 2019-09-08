@@ -1,0 +1,204 @@
+.filmId {
+  max-width: 1100px;
+  margin: 25px auto;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  padding: 15px;
+  margin: 0 auto;
+  max-width: 1100px;
+}
+
+.poster_img>div {
+  width: 330px;
+  height: 480px;
+}
+
+.title h2 {
+  font-size: 28px;
+  color: #E91E63;
+  margin: 0 auto 10px;
+}
+
+.film_information {
+  font-size: 11px;
+  padding: 15px 0;
+}
+
+.vote_average p {
+  padding: 0;
+  margin: 0;
+}
+
+.vote_average {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  width: 26px;
+  height: 26px;
+  border: 2px solid #E91E63;
+  border-radius: 50%;
+}
+
+.genre {
+  text-transform: capitalize;
+}
+
+p,
+span {
+  margin: 0;
+  font-size: 14px
+}
+
+.overview,
+.director,
+.user,
+.actor,
+.actor_details {
+  padding: 10px 0;
+}
+
+.video_container {
+  padding: 10px;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.video_container p {
+  padding: 10px 0;
+}
+
+.overview p {
+  line-height: 2em
+}
+
+.overview p:first-child {
+  font-size: 18px;
+  font-weight: bold;
+  opacity: 0.8;
+}
+
+.user button {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #E91E63;
+  border-radius: 50%;
+  line-height: normal;
+}
+
+.light_grey {
+  color: #95979c;
+}
+
+.actor>p {
+  width: auto;
+}
+
+/* actor card */
+
+.film-card {
+  max-width: 140px;
+}
+
+.actor_details {
+  height: auto;
+  margin: 0 auto;
+}
+
+.line {
+  border-top: 2px solid #95979c;
+  margin: 15px 0;
+}
+
+/* actor card */
+.actor_card {
+  margin: 15px 0;
+  height: auto;
+  max-width: 300px;
+}
+
+.header p {
+  font-size: 11px;
+  font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin: 0 10px 15px;
+  padding: 0 5px;
+}
+
+.actor_card_img {
+  position: relative;
+  padding-bottom: 150%;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.actor_card_img img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-height: 100%;
+  margin: auto;
+  transition: transform .4s ease-out;
+}
+
+.actor_card_img:hover .actor_card_img img {
+  transform: scale(1.05);
+}
+
+.thumb-wrap {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* задаёт высоту контейнера для 16:9 (если 4:3 — поставьте 75%) */
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+}
+
+.play {
+  width: 1000px;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #212121;
+  position: fixed;
+  z-index: 10004;
+  opacity: 1;
+  margin: 0 0 15px 0;
+  color: #fff;
+  padding: 20px
+}
+
+.play button {
+  font-size: 18px;
+  width: 30px;
+  height: 30px;
+  background: #212121;
+}
+
+.play button i {
+  color: #fff;
+  vertical-align: inherit;
+}
+
+.shadow {
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #212121;
+  z-index: 10003;
+}
+
+.not_results {
+  padding: 15px 0;
+}

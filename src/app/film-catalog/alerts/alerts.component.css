@@ -1,0 +1,40 @@
+.warning {
+  background-color: #FFC841;
+}
+
+.danger {
+  background-color: #B00020;
+}
+
+.success {
+  background-color: #03DAC6;
+}
+
+.info {
+  background-color: #FFF;
+}
+
+.alert {
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.alert_content {
+  margin: 0 auto;
+  max-width: 720px;
+}
+
+.alert-text {
+  font-size: 14px;
+  text-align: center;
+}
+
+.button_elements {
+  margin: 0 auto;
+}
+
+.button_elements>div {
+  display: flex;
+  justify-content: space-around
+}

@@ -1,0 +1,64 @@
+<div class="login-wrapper">
+  <section class="welcome">
+    <h3>Приветствуем Вас на The Movie DB</h3>
+    <p>Вы любите смотреть фильмы, онлайн? Если да, то у нас вы обязательно найдете для себя что-то интересное. Мы
+      собрали огромную коллекцию фильмов, которая постоянно пополняется как новинками, так и всеми любимыми и
+      признанными шедеврами прошлых лет!
+      Предпочитаете картины исключительно зарубежного производства? У нас их предостаточно: это и золотая классика
+      Голливуда, и душевные французские комедии, и темпераментные итальянские драмы, и шумные индийские
+      музыкальные фильмы. А может, вы патриот и любите отечественные фильмы? Что ж, и таких фильмов у нас немало!
+    </p>
+    <p class="hint">*Для того, чтобы иметь доступ к нашей огромной коллекции фильмов, необходимо авторизоваться</p>
+  </section>
+  <mat-card class="loginForm">
+<!--   -->
+    <!-- <form *ngIf="!isLogin" class="example-container" [formGroup]="userForm" (ngSubmit)="login()"> -->
+        <form class="example-container" [formGroup]="userForm" (ngSubmit)="login()">
+      <mat-form-field class="form_field">
+        <input matInput placeholder="Login" name="userLogin" required formControlName="userLogin" />
+        <mat-icon *ngIf="formErrors.userLogin" matSuffix class="error_icon error_icon_login">error</mat-icon>
+        <mat-error *ngIf="formErrors.userLogin" class="error">{{formErrors.userLogin}}</mat-error>
+        <!-- variant -->
+        <div *ngIf="formErrors.userLogin" class="tooltip_msg">{{formErrors.userLogin}}</div>
+      </mat-form-field>
+
+      <mat-form-field class="form_field">
+        <input matInput placeholder="Password" name="userPassword" required [type]="hide ? 'password' : 'text'"
+          formControlName="userPassword" />
+        <mat-icon *ngIf="formErrors.userPassword" matSuffix class="error_icon error_icon_password">error</mat-icon>
+        <mat-error *ngIf="formErrors.userPassword" class="error">{{ formErrors.userPassword}}</mat-error>
+        <!-- variant -->
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <div *ngIf="formErrors.userPassword" class="tooltip_msg">{{formErrors.userPassword}}</div>
+      </mat-form-field>
+      <div class="button_form">
+        <button mat-button type="submit" [disabled]="!userForm.valid" class="login_button">Войти</button>
+        <button mat-button type="button" (click)="clear()" class="clear_button">Очистить форму</button>
+      </div>
+      <div class="button_registration">
+        <button mat-button type="button" (click)="goToRegistration()">Регистрация</button>
+      </div>
+    </form>
+  </mat-card>
+</div>
+
+
+
+<!-- <mat-card class="card">
+  <form class="example-form" (ngSubmit)="login()">
+    <div>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Логин" [(ngModel)]="credentials.username" name="name">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Пароль" [(ngModel)]="credentials.password" name="password">
+      </mat-form-field>
+    </div>
+
+    <button mat-button class="login" color="primary" type="submit">Войти</button>
+    <button mat-button (click)="goToRegistration()">Регистрация</button>
+  </form>
+</mat-card> -->

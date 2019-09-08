@@ -1,0 +1,89 @@
+<div class="content">
+  <app-alerts></app-alerts>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row class="menu">
+      <div fxLayout="row" fxLayoutAlign="space-between center" class="film_nav">
+        <div class="film_logo"></div>
+        <span [ngClass]="{'hidden': !isLogin }" class="hide">
+          <a mat-button *ngFor="let link of links" [routerLink]="link.path" [routerLinkActive]="link.active">
+            {{link.label}}
+          </a>
+        </span>
+        <!-- simply menu -->
+        <span class="menu_simply show">
+          <button [ngClass]="{'hidden': !isLogin }" mat-button [matMenuTriggerFor]="menuLinks"><i
+              class="material-icons">view_headline</i></button>
+          <mat-menu #menuLinks="matMenu">
+            <button mat-menu-item *ngFor="let link of links">
+              <a class="menu_simply-link" [routerLink]="link.path">
+                <mat-icon class="example-icon">{{link.icon}}</mat-icon>
+                <span> {{link.label}} </span>
+              </a>
+            </button>
+          </mat-menu>
+        </span>
+      </div>
+
+      <div fxLayout="row" class="user_links" fxLayoutAlign="space-between center">
+        <span [ngClass]="{'hidden': !isLogin }" class="count hide">{{count_favorites | async}} </span>
+        <mat-icon [ngClass]="{'hidden': !isLogin }" class="example-icon_user hide" aria-hidden="false"
+          aria-label="Example heart icon">favorite</mat-icon>
+        <span [ngClass]="{'hidden': !isLogin }" class="count hide">{{count_marks | async}}</span>
+        <mat-icon [ngClass]="{'hidden': !isLogin }" class="example-icon_user  hide" aria-hidden="false"
+          aria-label="Example heart icon">bookmark</mat-icon>
+        <button [ngClass]="{'hidden': !isLogin }" class="button_user" [routerLink]="['/user', username]">
+          {{username | slice: 0:1 | uppercase}}
+        </button>
+        <button [ngClass]="{'hidden': !isLogin }" class="button_exit" mat-raised-button (click)="exit()">Выход</button>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  
+  <div [ngClass]="{'hidden': !isLogin }" class="search_field">
+    <app-search *ngIf="isSearch"></app-search>
+  </div>
+
+  <router-outlet></router-outlet>
+
+  <button class="backToTop" mat-fab (click)="backToTop()">
+    <i class="material-icons arrow-up">keyboard_arrow_up</i>
+  </button>
+</div>
+<footer>
+  <div class="footer_container">
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+      <div class="film_logo"></div>
+      <div class="footer_container-links" fxLayout="row wrap" fxLayoutAlign="space-between center">
+        <a href="#" target="_blank">
+          <div class="contact_media-icon" fxLayout="row" fxLayoutAlign="center center">
+            <i class="fab fa-facebook-f"></i>
+          </div>
+        </a>
+        <a href="#" target="_blank">
+          <div class="contact_media-icon" fxLayout="row" fxLayoutAlign="center center">
+            <i class="fab fa-twitter"></i>
+          </div>
+        </a>
+        <a href="#" target="_blank">
+          <div class="contact_media-icon" fxLayout="row" fxLayoutAlign="center center">
+            <i class="fab fa-instagram"></i>
+          </div>
+        </a>
+        <a href="#" target="_blank">
+          <div class="contact_media-icon" fxLayout="row" fxLayoutAlign="center center">
+            <i class="fab fa-youtube"></i>
+          </div>
+        </a>
+      </div>
+      <div class="footer_container-support" fxLayout="row wrap" fxLayoutAlign="center center">
+        <div>
+          <p> Поддержка</p>
+          <ul>
+            <li><a href="">support@mdb.ru</a></li>
+            <li><a href=""> +380-77-7777777</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

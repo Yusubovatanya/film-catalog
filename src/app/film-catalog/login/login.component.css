@@ -1,0 +1,115 @@
+.login-wrapper {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 20px 20px 0;
+}
+
+.welcome {
+  margin-bottom: 20px;
+}
+
+.welcome h3 {
+  font-size: 28px;
+  text-align: center
+}
+
+.welcome p {
+  line-height: 2em;
+  text-align: justify;
+  text-indent: 20px;
+}
+
+.hint {
+  font-size: 14px;
+  max-width: 720px;
+  margin: 0 auto;
+  text-indent: 0;
+}
+
+button {
+  display: block
+}
+
+.login {
+  margin-bottom: 25px
+}
+
+.loginForm {
+  width: 400px;
+  margin: 0 auto;
+  padding: 35px
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+  position: relative
+}
+
+.form_field {
+  margin-bottom: 20px;
+}
+
+.button_form {
+  display: flex;
+  justify-content: space-between;
+  padding: 35px 0 0 0;
+}
+
+.login_button {
+  background-color: #E91E63;
+  color: #fff;
+  width: 30%;
+}
+
+.clear_button {
+  width: 40%
+}
+
+.button_registration {
+  padding-top: 35px
+}
+
+.button_registration button {
+  width: 100%
+}
+
+.login_button[disabled],
+.button_registration button,
+.clear_button {
+  background-color: #F5F5F5;
+  color: #000;
+}
+
+.error_icon {
+  color: rgb(224, 6, 6);
+  height: 1.25em;
+  position: absolute;
+}
+
+.error_icon_login {
+  left: 5px;
+  top: -15px;
+}
+
+.error_icon_password {
+  left: 27px;
+  top: 0px;
+}
+
+.tooltip_msg {
+  display: inline-block;
+  position: absolute;
+  border: 1px solid #324044;
+  border-radius: 4px;
+  padding: 3px;
+  font-size: 10px;
+  background-color: #324044;
+  color: #fff;
+  max-height: 35px;
+  overflow-x: visible;
+  max-width: 150px;
+  width: max-content;
+  left: 445px;
+  top: 0;
+}

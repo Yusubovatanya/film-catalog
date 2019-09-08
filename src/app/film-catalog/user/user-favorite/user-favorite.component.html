@@ -1,0 +1,14 @@
+<h3> Список избранных фильмов: <span class="count">{{count_favorites}}</span></h3>
+<div fxLayout="row wrap" fxLayoutAlign="start start">
+  <div *ngFor="let film of filmFavoriteList; trackBy: trackByFn" fxFlex="33" fxFlex.sm="33" fxFlex.xs="33">
+    <app-film-item [film]="film" (star)="makeStar($event)" (mark)="makeMark($event)"></app-film-item>
+  </div>
+</div>
+
+<div class="main-container">
+  <div class="fixer-container">
+    <button mat-raised-button color="primary" *ngIf="result" [disabled]="lastPage"
+      (click)="getNextPageFilms()">Загрузить
+      еще</button>
+  </div>
+</div>

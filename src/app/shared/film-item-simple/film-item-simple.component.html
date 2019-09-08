@@ -1,0 +1,23 @@
+<mat-card class="film_card">
+  <div class="header">
+    <p>{{film?.title}}</p>
+    <div class="information">
+      <p>
+         {{film?.release_date | transformDate}} 
+      </p>
+        <p>Рейтинг: {{film?.vote_average ? film.vote_average : "  "}}</p>
+    </div>
+  </div>
+  <div class="film_card_img">
+    <a [routerLink]="['/films', film.id]">
+      <img [src]="film.poster_path ? imgUrl+film.poster_path:imgFull" alt="{{film.title}}">
+    </a>
+  </div>
+  <div class="description">
+    <div class="about_film">
+      <p>
+        {{film?.overview | slice:0:120}}...
+      </p>
+    </div>
+  </div>
+</mat-card>

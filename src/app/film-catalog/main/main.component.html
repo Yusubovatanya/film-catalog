@@ -1,0 +1,31 @@
+<app-spinner></app-spinner>
+<div class="wrapper_container">
+  <div class="popular_items">
+    <div class="popular_items_title" fxLayout="row wrap" fxLayoutAlign="space-between center">
+      <p fxFlex="60"><i class="fa fa-film"></i>Популярные фильмы</p>
+      <p fxFlex="40" fxLayoutAlign="space-between center"><span fxFlex="10"></span><a href="/films">Посмотреть все</a>
+      </p>
+    </div>
+    <div fxLayout="row wrap" fxLayoutAlign="space-between start" fxLayoutGap="5px" class="gallery">
+      <div *ngFor="let film of filmList; trackBy: trackByFn" class="card_film" fxFlex="15" fxFlex.md="15" fxFlex.sm="30"
+        fxFlex.xs="30">
+        <app-film-item-simple [film]="film"></app-film-item-simple>
+      </div>
+    </div>
+  </div>
+  <!-- actors -->
+  <div class="popular_items">
+    <div class="popular_items_title" fxLayout="row wrap" fxLayoutAlign="space-between center">
+      <p fxFlex="60"><i class="far fa-star"></i>Популярные актеры</p>
+      <p fxFlex="40" fxLayoutAlign="space-between center"><span fxFlex="10"></span><a href="/actors">Посмотреть
+          все</a>
+      </p>
+    </div>
+    <div fxLayout="row wrap" fxLayoutAlign="space-between start" fxLayoutGap="5px" class="gallery">
+      <div *ngFor="let actor of actorList; trackBy: trackByFn" class="card_film" fxFlex="15" fxFlex.md="15"
+        fxFlex.sm="30" fxFlex.xs="30">
+        <app-actor-item [actor]="actor"></app-actor-item>
+      </div>
+    </div>
+  </div>
+</div>

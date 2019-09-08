@@ -1,0 +1,19 @@
+<mat-card class="actor_card">
+  <div class="header">
+    <p *ngIf="actor.name">{{actor?.name}}</p>
+  </div>
+  <div class="actor_card_img">
+    <a [routerLink]="['/actors', actor.id]">
+      <img [src]="actor.profile_path ? imgUrl+actor.profile_path:imgFull" alt="{{actor.name}}">
+    </a>
+  </div>
+  <div class="description" *ngIf="actor.known_for">
+    <span *ngFor="let film_name of actor.known_for, last as isLastItem">
+      <span *ngIf="film_name">
+        <span *ngIf="film_name.name">{{film_name?.name}}</span>
+        <span *ngIf="film_name.title">{{film_name?.title}}</span>
+        <span *ngIf="!isLastItem">, </span>
+      </span>
+    </span>
+  </div>
+</mat-card>

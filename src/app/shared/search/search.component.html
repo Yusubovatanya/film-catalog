@@ -1,0 +1,10 @@
+<div class="wrapper_search">
+
+<mat-form-field class="example-full-width search">
+  <span matPrefix><i class="material-icons search_icon">search</i></span>
+  <input matInput class="input_search" placeholder="Search..." (keyup.enter)="search()" [(ngModel)]="valueSearch">
+  <button mat-button *ngIf="valueSearch" matSuffix mat-icon-button aria-label="Clear" (click)="clearField()">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
+</div>

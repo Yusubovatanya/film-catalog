@@ -1,0 +1,64 @@
+  <div class="registration-wrapper">
+    <mat-card class="card_registration">
+
+      <section class="title">
+        <h3 class="welcome">Приветствуем Вас <br>в системе регистрации нового пользователя</h3>
+      </section>
+
+      <form class="example-form" class="registration" (ngSubmit)="submitForm()" #form="ngForm">
+        <div *ngIf="!this.isValid" class="error_show"> 
+          <mat-icon matSuffix class="error_icon error_icon_password">error</mat-icon>
+          <div>
+            Форма заполнена некорректно !
+          </div>
+        </div>
+        <!-- login -->
+        <mat-form-field class="example-full-width">
+          <label for="registration_username">
+            <input matInput class="username" type="text" id="registration_username" placeholder="Логин" name="login"
+              ngModel required minlength="5" #login="ngModel">
+          </label>
+          <mat-error *ngIf="(login.touched && login.dirty) && login.invalid">Формат логина
+            неверный</mat-error>
+        </mat-form-field>
+        <!-- e-mail -->
+        <mat-form-field class="example-full-width">
+          <label for="email">
+            <input matInput class="username" type="email" id="email" placeholder="E-mail" name="email" ngModel required
+              email #email="ngModel">
+          </label>
+          <mat-error *ngIf="email.invalid  && (email.touched && email.dirty)" class="error">Введите правильный
+            e-mail</mat-error>
+        </mat-form-field>
+        <!-- password -->
+        <mat-form-field class="example-full-width">
+          <label for="registration_password">
+            <input matInput class="password" type="password" id="registration_password" placeholder="Пароль"
+              name="password" ngModel required minlength="5" maxlength="25" #password="ngModel"></label>
+          <mat-error class="msg"
+            *ngIf="(password.touched && password.dirty) && (!isValidPassword || password.invalid )">
+            Формат пароля неверный</mat-error>
+        </mat-form-field>
+
+        <div class="role">
+          <span class="required">Выберите роль пользователя</span>
+          <mat-form-field class="select_role">
+            <mat-select id="role" name="role" ngModel required role #role="ngModel" value="admin">
+              <mat-option *ngFor="let role of userRoles" [value]="role">{{role}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="(role.touched && role.dirty) && role.invalid">Формат логина
+              неверный</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="button_form">
+          <button mat-button type="submit" class="registration_button">Регистрация
+            пользователя</button>
+          <button mat-button type="button" (click)="clear()" class="clear_button">Очистить форму</button>
+        </div>
+      </form>
+      <div class="button_singIn">
+        <button mat-button (click)="goToLogin()" class="login_button">Войти в систему</button>
+      </div>
+    </mat-card>
+  </div>

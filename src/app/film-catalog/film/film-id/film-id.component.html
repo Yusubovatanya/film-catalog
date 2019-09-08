@@ -1,0 +1,126 @@
+<app-spinner></app-spinner>
+<div class="play" *ngIf="isPlay">
+  <div class="title_play" fxLayout="row wrap" fxLayoutAlign="space-between start">
+    <div>
+      <span>{{trailer?.name}}</span>
+    </div>
+    <button mat-icon-button (click)="closePlay()"><i class="material-icons">close</i></button>
+  </div>
+  <div *ngIf="trailer.key.length" class="video_play thumb-wrap">
+    <app-video [video]="trailer"></app-video>
+  </div>
+</div>
+<div [ngClass]="{ 'shadow': isPlay}"></div>
+<mat-card class="filmId">
+  <div class="wrapper">
+    <div fxLayout="row wrap" fxLayoutAlign="center start" fxLayout.xs="column">
+      <div class="poster_img" fxFlex="35" *ngIf="filmId?.poster_path">
+        <!-- <img [src]="filmId?.poster_path ? imgUrlFilm+filmId?.poster_path : imgFull" alt="{{filmId?.title}}"> -->
+        <div [ngStyle]="{
+          'background': filmId?.poster_path ? 'url('+ poster +')' : 'url('+ imgFull +')', 
+          'background-size': 'cover',
+          'background-position-x': 'center',
+          'background-position-y': 'top'
+        }">
+        </div>
+      </div>
+      <div fxFlex="65">
+        <div class="title">
+          <h2>{{filmId?.title}}</h2>
+        </div>
+        <div class="film_information" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="15px">
+          <p>{{filmId?.release_date | slice:0:4}} г.</p>
+          <div *ngIf="filmId?.production_countries" fxLayout="row" fxLayoutAlign="space-between center"
+            fxLayoutGap="5px">
+            <p *ngFor="let country of filmId?.production_countries | slice:0:3; let i = index"
+              class="production_countries">
+              <span *ngIf="country.name">{{country.name | shortState }}</span>
+            </p>
+          </div>
+          <div class="genre" *ngIf="filmId?.genres" fxLayout="row" fxLayoutAlign="space-between center"
+            fxLayoutGap="5px">
+            <p *ngFor="let genre of filmId?.genres">
+              <span>{{genre?.name}}</span>
+            </p>
+          </div>
+          <p>{{filmId?.runtime ? filmId?.runtime + "мин.": ""}} </p>
+        </div>
+        <div class="user" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="25px">
+          <div fxLayout="row" fxLayoutAlign="start center">
+            <!-- loader -->
+            <div *ngIf='filmId?.vote_average' class="loader">
+              <app-loader [upto]='filmId.vote_average * 10'></app-loader>
+            </div>
+            <span>Рейтинг <br> пользователей</span>
+          </div>
+          <!--  -->
+
+          <button mat-icon-button (click)="makeMark()" [color]="!filmId?.isMark ? 'primary' : 'accent'"
+            [matTooltip]="!filmId?.isMark ? 'Добавить в закладки' : 'Удалить из закладок'" matTooltipPosition="above">
+            <i class="material-icons">{{!filmId?.isMark ? 'bookmark_border' : 'bookmark'}}</i>
+          </button>
+          <button mat-icon-button [color]="!filmId?.isFavorite ? 'primary' : 'accent'" (click)="starFilm()"
+            [matTooltip]="!filmId?.isFavorite ? 'Добавить в избранные' : 'Удалить из списка избранных'"
+            matTooltipPosition="above">
+            <i class="material-icons">{{filmId?.isFavorite ? 'favorite' : 'favorite_border'}}</i>
+          </button>
+          <button mat-icon-button color="primary" (click)="playFilm()" matTooltip="Воспроизвести трейлер "
+            matTooltipPosition="above">
+            <i class="material-icons">play_arrow</i>
+          </button>
+        </div>
+
+        <div class="director" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+          <p class="light_grey">Режисер: </p>
+          <p *ngFor="let director of actorCrewDirector; last as isLastItem">
+            <span *ngIf="director.name">{{director?.name}}</span>
+            <span *ngIf="!isLastItem">, </span>
+          </p>
+        </div>
+        <div class="actor" fxLayout="row nowrap" fxLayoutAlign="start start" fxLayoutGap="10px">
+          <p class="light_grey">Актеры: </p>
+          <div fxLayoutAlign="start center" fxLayoutGap="10px" fxLayout="layout-wrap row">
+            <p *ngFor="let actorCast of actorListCast; last as isLastItem">
+              <span>{{actorCast?.name}}</span>
+              <span *ngIf="!isLastItem">, </span>
+            </p>
+          </div>
+        </div>
+        <div class="overview" *ngIf="filmId?.overview">
+          <p>Обзор</p>
+          <p>{{filmId?.overview}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="actorListCast?.length" class="line"></div>
+    <mat-tab-group (selectedTabChange)="tabChanged()" [(selectedIndex)]="selectedIndex">
+      <mat-tab label="Актеры">
+        <ng-template matTabContent>
+          <div class="actor_details">
+            <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="10px">
+              <div *ngFor="let actor of actorListCast" fxFlex="15.8" class="actor-card" fxFlex.sm="30" fxFlex.xs="45">
+                <app-actor-item [actor]="actor"></app-actor-item>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </mat-tab>
+      <mat-tab label="Видео">
+        <ng-template matTabContent>
+          <ng-template #notResults>
+            <p class="light_grey not_results"> not results...</p>
+          </ng-template>
+          <div class="video_container" *ngIf="videos.length;else notResults">
+            <div *ngFor="let video of videos">
+              <h3>{{video?.name}}</h3>
+              <div class="thumb-wrap">
+                <app-video [video]="video"></app-video>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</mat-card>

@@ -1,0 +1,36 @@
+.example-full-width {
+ width: 100%
+}
+
+.search {
+  margin-right: 15px;
+  color: #fff;
+  opacity: 0.8;
+}
+
+.button_search {
+  background-color: #7986cb;
+  color: #fff
+}
+
+.input_search, .search {
+  font-size: 14px;
+  margin-top: 5px;
+  color: #222;
+}
+
+.wrapper_search {
+  width: 100%;
+}
+
+.search_icon {
+  vertical-align: middle;
+  margin: 0 10px 5px 3px;
+  color: #95979c
+}
+
+.search:active .search_icon,
+.search:hover .search_icon,
+.search:focus .search_icon {
+  color: #222;
+}

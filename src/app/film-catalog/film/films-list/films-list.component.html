@@ -1,0 +1,18 @@
+<app-spinner></app-spinner>
+
+<div *ngIf="result">
+  <div fxLayout="row wrap" fxLayoutAlign="space-between start" class="gallery">
+    <div *ngFor="let film of filmList; trackBy: trackByFn" class="card_film" fxFlex="24" fxFlex.md="24" fxFlex.sm="45"
+      fxFlex.xs="45">
+      <app-film-item [film]="film" (star)="makeStar($event)" (mark)="makeMark($event)"></app-film-item>
+    </div>
+  </div>
+  <div class="main-container">
+    <div class="fixer-container">
+      <button mat-raised-button color="primary" *ngIf="result" [disabled]="lastPage" (click)="getFilms()">Загрузить
+        еще</button>
+    </div>
+  </div>
+</div>
+
+<app-search-api *ngIf="!result"></app-search-api>

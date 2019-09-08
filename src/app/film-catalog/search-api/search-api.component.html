@@ -1,0 +1,36 @@
+<app-spinner></app-spinner>
+<div class="wrapper">
+  <div  *ngIf="resultSearch" >
+    <div class="total_results">
+      <span>Найдено: {{totalResult}}</span>
+    </div>
+
+    <div *ngIf="isFilmSearch;else actors" fxLayout="row wrap" fxLayoutAlign="start" fxLayoutGap="10px"
+      class="gallery">
+      <div *ngFor="let film of filmListSearch; trackBy: trackByFn" class="card_film" fxFlex="24" fxFlex.sm="40"
+        fxFlex.xs="40">
+        <app-film-item [film]="film" [counter]="counter" (star)="makeStar($event)" (mark)="makeMark($event)">
+        </app-film-item>
+      </div>
+    </div>
+
+    <ng-template #actors>
+      <div fxLayout="row wrap" fxLayoutAlign=" start" fxLayoutGap="10px">
+        <div class="card_film" fxFlex="24" fxFlex.sm="40" fxFlex.xs="40"
+          *ngFor="let actor of actorListSearch; trackBy: trackByFn">
+          <app-actor-item [actor]="actor"></app-actor-item>
+        </div>
+      </div>
+    </ng-template>
+
+    <div class="main-container">
+      <div class="fixer-container">
+        <button mat-raised-button color="primary" [disabled]="lastPage" (click)="getSearchItems()">Загрузить
+          еще</button>
+      </div>
+    </div>
+  </div>
+
+  <mat-card *ngIf="!resultSearch">По вашему запросу ничего не найдено !</mat-card>
+
+</div>

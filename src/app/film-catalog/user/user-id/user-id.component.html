@@ -1,0 +1,35 @@
+<app-spinner></app-spinner>
+
+<mat-card class="user_card">
+  <div class="wrapper">
+
+    <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="20px" fxLayout.xs="column">
+      <div class="user_img">
+        <h2 #name> {{dataUser?.username | slice:0:1}}</h2>
+      </div>
+
+      <div class="description">
+        <div class="title">
+          <h2>{{dataUser?.name ? dataUser.name: dataUser?.username}}</h2>
+        </div>
+      </div>
+    </div>
+
+    <mat-tab-group>
+      <mat-tab label="Избанные">
+        <ng-template matTabContent>
+          <app-user-favorite></app-user-favorite>
+        </ng-template>
+      </mat-tab>
+
+      <mat-tab label="Список отслеживания">
+        <ng-template matTabContent>
+          <app-user-book-mark ></app-user-book-mark>
+        </ng-template>
+      </mat-tab>
+
+    </mat-tab-group>
+  </div>
+</mat-card>
+
+

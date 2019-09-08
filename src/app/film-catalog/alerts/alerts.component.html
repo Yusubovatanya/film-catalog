@@ -1,0 +1,20 @@
+<div class="alert" *ngIf="isShow" [ngClass]="{
+  'success': message.type === 'success',
+  'danger': message.type === 'danger',
+  'info': message.type === 'info',
+  'warning': message.type === 'warning'
+  }">
+
+  <div class="alert_content">
+    <div class="alert-text">
+      {{message.body}}
+    </div>
+    <div *ngIf="message.action" class="button_elements">
+      <div>
+        <button mat-button (click)="submit()">Подтвердить</button>
+        <button mat-button (click)="close()">Close</button>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,150 @@
+.filmId {
+  max-width: 1100px;
+  margin: 25px auto;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.title h2 {
+  font-size: 28px;
+  color: #E91E63;
+  margin: 0 auto 10px;
+}
+
+.poster_img {
+  max-width: 320px;
+  margin-bottom: 15px;
+}
+
+.actor_information {
+  font-size: 11px;
+  padding: 15px 0;
+}
+
+p,
+.show_less {
+  line-height: 2em;
+}
+
+p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.light_grey {
+  color: #95979c;
+}
+
+.light_grey span {
+  color: #000;
+}
+
+.line {
+  border-top: 2px solid #95979c;
+  margin: 15px 0;
+}
+
+.know_for {
+  margin-bottom: 15px;
+}
+
+/* table */
+table {
+  width: 100%;
+}
+
+.img_table {
+  height: 125px;
+}
+
+.actor_table a {
+  text-decoration: none;
+  color: #000;
+  padding: 3px 7px;
+}
+
+.actor_table tr:hover,
+.actor_table tr:active,
+.actor_table tr:focus {
+  border: 1px solid rgba(149, 151, 156, 0.5);
+  background-color: rgba(149, 151, 156, 0.5);
+  border-radius: 4px
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+
+.actor_table a:visited {
+  color: #7986cb;
+}
+
+.actor_table a:visited:hover {
+  color: #fff;
+}
+
+.column_data {
+  width: 12%
+}
+
+.column_vote_average {
+  width: 10%
+}
+
+.column_character {
+  width: 25%
+}
+
+.column_poster {
+  width: 12%
+}
+
+/*  biography */
+.show_toggle {
+  visibility: hidden;
+  height: 0;
+  font-size: 0;
+  display: block;
+}
+
+.show_toggle.show_toggle:checked~.show_label .show_less,
+.show_toggle:checked~.show_less {
+  display: none !important;
+}
+
+.show_toggle:checked~.show_label .show_more,
+.show_toggle:checked~.show_more {
+  display: block !important;
+}
+
+.show_less {
+  display: inline;
+  padding-right: 10px;
+}
+
+.show_more {
+  display: none;
+}
+
+.show_label {
+  cursor: pointer;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: .3px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 959px) {
+  h2 {
+    text-align: center
+  }
+}

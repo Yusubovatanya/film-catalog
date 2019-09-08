@@ -1,0 +1,33 @@
+<mat-card class="film_card">
+    <div class="header">
+      <p *ngIf="film.title">{{film?.title}}</p>
+      <div class="information">
+        <p>Дата релиза: {{film?.release_date ? (film.release_date | slice:0:4) : ""}}</p>
+        <p>Рейтинг: {{film?.vote_average ? film.vote_average : "  "}}</p>
+      </div>
+    </div>
+    <div class="film_card_img">
+      <a [routerLink]="['/films', film.id]">
+        <img [src]="film.poster_path ? imgUrl+film.poster_path:imgFull" alt="{{film.title}}">
+      </a>
+    </div>
+    <div class="description">
+      <div class="action">
+        <button mat-icon-button color="primary" (click)="markFilm()" [color]="!film.isMark ? 'primary' : 'accent'">
+          <i class="material-icons">{{!film?.isMark ? 'bookmark_border' : 'bookmark'}}</i>
+        </button>
+        <button mat-icon-button color="primary">
+            <a [routerLink]="['/films', film.id]"><i class="material-icons center_icon"> menu</i></a>
+        </button>
+        <button mat-icon-button [color]="!film.isFavorite ? 'primary' : 'accent'" (click)="starFilm()">
+          <i class="material-icons">{{film?.isFavorite ? 'favorite' : 'favorite_border'}}</i>
+        </button>
+      </div>
+      <div class="about_film">
+        <p>
+          {{film?.overview | slice:0:120}}...
+        </p>
+      </div>
+    </div>
+  </mat-card>
+  

@@ -1,0 +1,88 @@
+<app-spinner></app-spinner>
+<mat-card class="filmId">
+  <div class="wrapper">
+    <div fxLayout="row wrap" fxLayoutAlign="center start" fxLayout.sm="column" fxLayoutAlign.sm="center center"
+      fxLayout.xs="column" fxLayoutAlign.xs="center center">
+      <div class="poster_img" fxFlex="" *ngIf="actorId">
+        <img [src]="actorId?.profile_path ? imgUrlActor+actorId?.profile_path:imgFull" alt="{{actorId?.name}}">
+      </div>
+      <div fxFlex="">
+        <div class="title">
+          <h2>{{actorId?.name}}</h2>
+        </div>
+        <div class="actor_information">
+          <p *ngIf="actorId?.birthday"><span class="light_grey">Дата рождения:</span><span>{{actorId?.birthday}}</span>
+          </p>
+          <p *ngIf="actorId?.place_of_birth"><span class="light_grey">Место рождения:
+            </span><span>{{actorId?.place_of_birth}}</span></p>
+          <p *ngIf="actorId?.popularity"><span class="light_grey">Рейтинг: </span><span>{{actorId?.popularity}}</span>
+          </p>
+        </div>
+
+        <div *ngIf="actorId?.biography">
+          <h3>Биография</h3> <input class="show_toggle" [id]="actorId.id" type="checkbox">
+          <div class="show_more">
+            <p>{{actorId?.biography}}</p>
+          </div>
+          <div class="show_less">{{actorId?.biography | slice:0:450}}... </div>
+          <label [for]="actorId.id" class="show_label">
+            <span class="show_less light_grey">Полная биография</span>
+            <span class="show_more light_grey">Свернуть</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="filmListCredit?.length" class="line"></div>
+    <div *ngIf="isLoadingResults">
+      <div class="know_for">
+        <h3>Фильмография</h3>
+        <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="20px">
+          <div *ngFor="let filmCredit of filmListCredit; trackBy: trackByFn" class="card_film" fxFlex="15"
+            fxFlex.sm="30" fxFlex.xs="44">
+            <app-film-item-simple [film]="filmCredit"></app-film-item-simple>
+          </div>
+        </div>
+      </div>
+      <!-- table -->
+      <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 actor_table"
+        matSortActive="release_date" matSortDirection="asc" matSortDisableClear>
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Фильм </th>
+          <td mat-cell *matCellDef="let element" class="column_title">
+            {{element?.title}} </td>
+        </ng-container>
+        <ng-container matColumnDef="vote_average">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Рейтинг </th>
+          <td mat-cell *matCellDef="let element" class="column_vote_average"> {{element?.vote_average}} </td>
+        </ng-container>
+        <ng-container matColumnDef="release_date">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Год </th>
+          <td mat-cell *matCellDef="let element" class="column_data"> {{element?.release_date | date:"yyyy"}} </td>
+        </ng-container>
+        <ng-container matColumnDef="character">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header class="column_character"> Роль </th>
+          <td mat-cell *matCellDef="let element"> {{element?.character}} </td>
+        </ng-container>
+        <ng-container matColumnDef="poster_path">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header class="column_poster"> Постер </th>
+          <td mat-cell *matCellDef="let element">
+            <!-- <img [src]="element.poster_path ? imgUrlFilmCredit+element.poster_path : imgFull" class="img_table"> -->
+            <div class="img_poster" [ngStyle]="{
+              'background': getUrl(element),
+              'width': '80px',
+              'height': '125px',
+              'background-size': 'cover',
+              'background-position-x': 'center',
+              'background-position-y': 'top'
+            }">
+            </div>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectRow(row)">
+        </tr>
+      </table>
+    </div>
+  </div>
+</mat-card>
